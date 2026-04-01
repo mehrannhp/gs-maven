@@ -23,15 +23,14 @@ pipeline {
 				sh 'test/run.sh'
 			}
 		}
-
 	}
 
 	post {
-		changed {
-			script {
-				slackSend(...)
-				emailext(...)
-			}
+		success {
+			echo 'OK 🚀'
+		}
+		failure {
+			echo 'FAILED ❌'
 		}
 	}
 }
